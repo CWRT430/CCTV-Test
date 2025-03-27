@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M3U8 Multi Player</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            background-color: #000;
+            color: white;
+        }
+        .video-container {
+            position: relative;
+            width: 45%;
+            max-width: 600px;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container"><video id="video1" controls></video></div>
+    <div class="video-container"><video id="video2" controls></video></div>
+    <div class="video-container"><video id="video3" controls></video></div>
+    <div class="video-container"><video id="video4" controls></video></div>
+
+    <script>
+        const streams = [
+            "http://183.88.214.137:1935/livecctv/cctvp2c030.stream/chunklist_w1495777371.m3u8",แยกหนองบัว
+            "http://183.88.214.137:1935/livecctv/cctvp2c032.stream/chunklist_w720902657.m3u8",แยก รร.สุนีย์ฯ ขาเข้า
+            "http://183.88.214.137:1935/livecctv/cctvp2c239.stream/chunklist_w1895520470.m3u8",แยก รร.สุนีย์ฯ ขาออก
+            "http://183.88.214.137:1935/livecctv/cctvp2c033.stream/chunklist_w774071093.m3u8"
+        ];
+        
+        streams.forEach((stream, index) => {
+            const video = document.getElementById(`video${index + 1}`);
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(stream);
+                hls.attachMedia(video);
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = stream;
+            }
+        });
+    </script>
+</body>
+</html>
