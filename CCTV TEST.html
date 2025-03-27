@@ -9,35 +9,89 @@
         body {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 0px; /* ปรับระยะห่างระหว่างจอวิดีโอ */
             justify-content: center;
             background-color: #000;
             color: white;
         }
         .video-container {
             position: relative;
-            width: 45%;
-            max-width: 600px;
+            width: 90%; /* ปรับขนาดให้เหมาะกับ 12 จอ */
+            max-width: 462px;
+            margin: 5px; /* ปรับระยะห่างรอบขอบของแต่ละจอ */
+			text-align: center;
         }
         video {
             width: 100%;
             height: auto;
-            border: 2px solid white;
+            border: 2px solid gray;
         }
     </style>
 </head>
 <body>
-    <div class="video-container"><video id="video1" controls></video></div>
-    <div class="video-container"><video id="video2" controls></video></div>
-    <div class="video-container"><video id="video3" controls></video></div>
-    <div class="video-container"><video id="video4" controls></video></div>
+	<div class="video-container">
+        <video id="video1" controls></video>
+        <div class="video-label">กล้องที่ 1</div>
+    </div>
+    <div class="video-container">
+        <video id="video2" controls></video>
+        <div class="video-label">กล้องที่ 2</div>
+    </div>
+    <div class="video-container">
+        <video id="video3" controls></video>
+        <div class="video-label">กล้องที่ 3</div>
+    </div>
+    <div class="video-container">
+        <video id="video4" controls></video>
+        <div class="video-label">กล้องที่ 4</div>
+    </div>
+    <div class="video-container">
+        <video id="video5" controls></video>
+        <div class="video-label">กล้องที่ 5</div>
+    </div>
+    <div class="video-container">
+        <video id="video6" controls></video>
+        <div class="video-label">กล้องที่ 6</div>
+    </div>
+    <div class="video-container">
+        <video id="video7" controls></video>
+        <div class="video-label">กล้องที่ 7</div>
+    </div>
+    <div class="video-container">
+        <video id="video8" controls></video>
+        <div class="video-label">กล้องที่ 8</div>
+    </div>
+    <div class="video-container">
+        <video id="video9" controls></video>
+        <div class="video-label">กล้องที่ 9</div>
+    </div>
+    <div class="video-container">
+        <video id="video10" controls></video>
+        <div class="video-label">กล้องที่ 10</div>
+    </div>
+    <div class="video-container">
+        <video id="video11" controls></video>
+        <div class="video-label">กล้องที่ 11</div>
+    </div>
+    <div class="video-container">
+        <video id="video12" controls></video>
+        <div class="video-label">กล้องที่ 12</div>
+    </div>
 
     <script>
         const streams = [
             "http://183.88.214.137:1935/livecctv/cctvp2c030.stream/chunklist_w1495777371.m3u8",
             "http://183.88.214.137:1935/livecctv/cctvp2c032.stream/chunklist_w720902657.m3u8",
             "http://183.88.214.137:1935/livecctv/cctvp2c239.stream/chunklist_w1895520470.m3u8",
-            "http://183.88.214.137:1935/livecctv/cctvp2c033.stream/chunklist_w774071093.m3u8"
+            "http://183.88.214.137:1935/livecctv/cctvp2c033.stream/chunklist_w774071093.m3u8",
+			"http://183.88.214.137:1935/livecctv/cctvp2c034.stream/chunklist_w809592665.m3u8",
+			"http://183.88.214.137:1935/livecctv/cctvp2c036.stream/chunklist_w1501336008.m3u8",
+			"http://183.88.214.137:1935/livecctv/cctvp2c037.stream/chunklist_w144402029.m3u8",
+			"http://183.88.214.137:1935/livecctv/cctvp2c063.stream/chunklist_w1671868682.m3u8",
+			"http://183.88.214.137:1935/livecctv/cctvp2c067.stream/chunklist_w416960074.m3u8",
+			"http://183.88.214.137:1935/livecctv/cctvp2c113.stream/chunklist_w842673052.m3u8",
+			"http://183.88.214.137:1935/livecctv/cctvp2c001.stream/chunklist_w591373056.m3u8",
+			"http://183.88.214.137:1935/livecctv/cctvp2c115.stream/chunklist_w1314843976.m3u8"
         ];
         
         streams.forEach((stream, index) => {
